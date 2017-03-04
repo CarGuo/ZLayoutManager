@@ -47,7 +47,7 @@ public class OverLayCardLayoutManager extends RecyclerView.LayoutManager {
             int widthSpace = getWidth() - getDecoratedMeasuredWidth(view);
             int heightSpace = getHeight() - getDecoratedMeasuredHeight(view);
             //我们在布局时，将childView居中处理，这里也可以改为只水平居中
-            layoutDecoratedWithMargins(view, widthSpace / 2, heightSpace / 2,
+            layoutDecorated(view, widthSpace / 2, heightSpace / 2,
                     widthSpace / 2 + getDecoratedMeasuredWidth(view),
                     heightSpace / 2 + getDecoratedMeasuredHeight(view));
             /**

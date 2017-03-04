@@ -32,7 +32,7 @@ public class FlowLayoutManager extends RecyclerView.LayoutManager {
     }*/
 
     public FlowLayoutManager() {
-        setAutoMeasureEnabled(true);
+        //setAutoMeasureEnabled(true);
         mItemRects = new SparseArray<>();
     }
 
@@ -130,7 +130,7 @@ public class FlowLayoutManager extends RecyclerView.LayoutManager {
                 measureChildWithMargins(child, 0, 0);
                 //计算宽度 包括margin
                 if (leftOffset + getDecoratedMeasurementHorizontal(child) <= getHorizontalSpace()) {//当前行还排列的下
-                    layoutDecoratedWithMargins(child, leftOffset, topOffset, leftOffset + getDecoratedMeasurementHorizontal(child), topOffset + getDecoratedMeasurementVertical(child));
+                    layoutDecorated(child, leftOffset, topOffset, leftOffset + getDecoratedMeasurementHorizontal(child), topOffset + getDecoratedMeasurementVertical(child));
 
                     //保存Rect供逆序layout用
                     Rect rect = new Rect(leftOffset, topOffset + mVerticalOffset, leftOffset + getDecoratedMeasurementHorizontal(child), topOffset + getDecoratedMeasurementVertical(child) + mVerticalOffset);
@@ -151,7 +151,7 @@ public class FlowLayoutManager extends RecyclerView.LayoutManager {
                         removeAndRecycleView(child, recycler);
                         mLastVisiPos = i - 1;
                     } else {
-                        layoutDecoratedWithMargins(child, leftOffset, topOffset, leftOffset + getDecoratedMeasurementHorizontal(child), topOffset + getDecoratedMeasurementVertical(child));
+                        layoutDecorated(child, leftOffset, topOffset, leftOffset + getDecoratedMeasurementHorizontal(child), topOffset + getDecoratedMeasurementVertical(child));
 
                         //保存Rect供逆序layout用
                         Rect rect = new Rect(leftOffset, topOffset + mVerticalOffset, leftOffset + getDecoratedMeasurementHorizontal(child), topOffset + getDecoratedMeasurementVertical(child) + mVerticalOffset);
@@ -195,7 +195,7 @@ public class FlowLayoutManager extends RecyclerView.LayoutManager {
                     addView(child, 0);//将View添加至RecyclerView中，childIndex为1，但是View的位置还是由layout的位置决定
                     measureChildWithMargins(child, 0, 0);
 
-                    layoutDecoratedWithMargins(child, rect.left, rect.top - mVerticalOffset, rect.right, rect.bottom - mVerticalOffset);
+                    layoutDecorated(child, rect.left, rect.top - mVerticalOffset, rect.right, rect.bottom - mVerticalOffset);
                 }
             }
         }

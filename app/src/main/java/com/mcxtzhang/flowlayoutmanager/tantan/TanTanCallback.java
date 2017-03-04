@@ -91,10 +91,10 @@ public class TanTanCallback extends RenRenCallback {
      * @return
      */
     public boolean isTopViewCenterInHorizontal(View topView) {
-        Log.d("TAG", "getSwipeThreshold() called with: viewHolder.itemView.getX() = [" + topView.getX() + "]");
-        Log.d("TAG", "getSwipeThreshold() called with:  viewHolder.itemView.getWidth() / 2  = [" + topView.getWidth() / 2 + "]");
-        Log.d("TAG", "getSwipeThreshold() called with:  mRv.getX() = [" + mRv.getX() + "]");
-        Log.d("TAG", "getSwipeThreshold() called with:  mRv.getWidth() / 2 = [" + mRv.getWidth() / 2 + "]");
+        //Log.d("TAG", "getSwipeThreshold() called with: viewHolder.itemView.getX() = [" + topView.getX() + "]");
+        //Log.d("TAG", "getSwipeThreshold() called with:  viewHolder.itemView.getWidth() / 2  = [" + topView.getWidth() / 2 + "]");
+        //Log.d("TAG", "getSwipeThreshold() called with:  mRv.getX() = [" + mRv.getX() + "]");
+        //Log.d("TAG", "getSwipeThreshold() called with:  mRv.getWidth() / 2 = [" + mRv.getWidth() / 2 + "]");
         return Math.abs(mRv.getWidth() / 2 - topView.getX() - (topView.getWidth() / 2)) < mHorizontalDeviation;
     }
 
@@ -153,6 +153,8 @@ public class TanTanCallback extends RenRenCallback {
                     } else {
                         child.setTranslationY((float) (TRANS_Y_GAP * level - fraction * TRANS_Y_GAP));
                     }
+                } else if (level < MAX_SHOW_COUNT) {
+                    child.setAlpha((float) (1 - ALPHA_GAP * (level + 1) + fraction * ALPHA_GAP));
                 } else {
                     //child.setTranslationY((float) (mTranslationYGap * (level - 1) - fraction * mTranslationYGap));
                 }

@@ -3,6 +3,7 @@ package com.mcxtzhang.layoutmanager.swipecard;
 import android.graphics.Canvas;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.View;
 
 import java.util.List;
@@ -90,9 +91,11 @@ public class RenRenCallback extends ItemTouchHelper.SimpleCallback {
                     child.setAlpha((float) (1 - ALPHA_GAP * level + fraction * ALPHA_GAP));
                     if (CardConfig.TRANS_FLAG == 0) {
                         child.setTranslationY(-(float) (TRANS_Y_GAP * level - fraction * TRANS_Y_GAP));
-                    } else {
+                    }  else {
                         child.setTranslationY((float) (TRANS_Y_GAP * level - fraction * TRANS_Y_GAP));
                     }
+                } else if (level < MAX_SHOW_COUNT) {
+                    child.setAlpha((float) (1 - ALPHA_GAP * (level + 1) + fraction * ALPHA_GAP));
                 } else {
                     //child.setTranslationY((float) (mTranslationYGap * (level - 1) - fraction * mTranslationYGap));
                 }

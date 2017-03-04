@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.mcxtzhang.commonadapter.rv.ViewHolder;
 import com.mcxtzhang.flowlayoutmanager.R;
+import com.mcxtzhang.layoutmanager.swipecard.CardConfig;
 import com.mcxtzhang.layoutmanager.swipecard.RenRenCallback;
 
 import java.util.List;
@@ -145,7 +146,11 @@ public class TanTanCallback extends RenRenCallback {
 
                 if (level < MAX_SHOW_COUNT - 1) {
                     child.setScaleY((float) (1 - SCALE_GAP * level + fraction * SCALE_GAP));
-                    child.setTranslationY((float) (TRANS_Y_GAP * level - fraction * TRANS_Y_GAP));
+                    if (CardConfig.TRANS_FLAG == 0) {
+                        child.setTranslationY(-(float) (TRANS_Y_GAP * level - fraction * TRANS_Y_GAP));
+                    } else {
+                        child.setTranslationY((float) (TRANS_Y_GAP * level - fraction * TRANS_Y_GAP));
+                    }
                 } else {
                     //child.setTranslationY((float) (mTranslationYGap * (level - 1) - fraction * mTranslationYGap));
                 }

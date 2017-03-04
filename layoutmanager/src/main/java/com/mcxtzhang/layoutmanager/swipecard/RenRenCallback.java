@@ -86,7 +86,11 @@ public class RenRenCallback extends ItemTouchHelper.SimpleCallback {
 
                 if (level < MAX_SHOW_COUNT - 1) {
                     child.setScaleY((float) (1 - SCALE_GAP * level + fraction * SCALE_GAP));
-                    child.setTranslationY((float) (TRANS_Y_GAP * level - fraction * TRANS_Y_GAP));
+                    if (CardConfig.TRANS_FLAG == 0) {
+                        child.setTranslationY(-(float) (TRANS_Y_GAP * level - fraction * TRANS_Y_GAP));
+                    } else {
+                        child.setTranslationY((float) (TRANS_Y_GAP * level - fraction * TRANS_Y_GAP));
+                    }
                 } else {
                     //child.setTranslationY((float) (mTranslationYGap * (level - 1) - fraction * mTranslationYGap));
                 }

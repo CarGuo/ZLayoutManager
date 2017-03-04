@@ -21,7 +21,10 @@ public class CardConfig {
 
     //每一级Scale相差0.05f，translationY相差7dp左右
     public static float SCALE_GAP;
+
     public static int TRANS_Y_GAP;
+
+    public static int TRANS_FLAG = 0;//默认从下往下透
 
     public static void initConfig(Context context) {
         MAX_SHOW_COUNT = 4;

@@ -13,6 +13,7 @@ import com.mcxtzhang.layoutmanager.swipecard.RenRenCallback;
 
 import java.util.List;
 
+import static com.mcxtzhang.layoutmanager.swipecard.CardConfig.ALPHA_GAP;
 import static com.mcxtzhang.layoutmanager.swipecard.CardConfig.MAX_SHOW_COUNT;
 import static com.mcxtzhang.layoutmanager.swipecard.CardConfig.SCALE_GAP;
 import static com.mcxtzhang.layoutmanager.swipecard.CardConfig.TRANS_Y_GAP;
@@ -146,6 +147,7 @@ public class TanTanCallback extends RenRenCallback {
 
                 if (level < MAX_SHOW_COUNT - 1) {
                     child.setScaleY((float) (1 - SCALE_GAP * level + fraction * SCALE_GAP));
+                    child.setAlpha((float) (1 - ALPHA_GAP * level + fraction * ALPHA_GAP));
                     if (CardConfig.TRANS_FLAG == 0) {
                         child.setTranslationY(-(float) (TRANS_Y_GAP * level - fraction * TRANS_Y_GAP));
                     } else {

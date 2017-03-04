@@ -74,6 +74,7 @@ public class OverLayCardLayoutManager extends RecyclerView.LayoutManager {
                         view.setTranslationY(CardConfig.TRANS_Y_GAP * level);
                     }
                     view.setScaleY(1 - CardConfig.SCALE_GAP * level);
+                    view.setAlpha(1 - CardConfig.ALPHA_GAP * level);
                 } else {//第N层在 向下位移和Y方向的缩小的成都与 N-1层保持一致
                     if (CardConfig.TRANS_FLAG == 0) {
                         view.setTranslationY(-CardConfig.TRANS_Y_GAP * (level - 1));
@@ -81,6 +82,7 @@ public class OverLayCardLayoutManager extends RecyclerView.LayoutManager {
                         view.setTranslationY(CardConfig.TRANS_Y_GAP * (level - 1));
                     }
                     view.setScaleY(1 - CardConfig.SCALE_GAP * (level - 1));
+                    view.setAlpha(0);
                 }
             }
         }

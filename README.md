@@ -1,6 +1,8 @@
 # LayoutManagerDemo
 [![](https://jitpack.io/v/mcxtzhang/LayoutManagerDemo.svg)](https://jitpack.io/#mcxtzhang/LayoutManagerDemo)
 
+### 在原库上作了更改优化。
+
 利用自定义LayoutManager 的一些实战实例。
 
 
